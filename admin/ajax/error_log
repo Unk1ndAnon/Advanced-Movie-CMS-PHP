@@ -1,0 +1,2 @@
+[05-May-2019 17:10:41 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/movieshd/123movies.123moviesfree.stream/includes/functions.php on line 16
+[05-May-2019 17:10:51 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/movieshd/123movies.123moviesfree.stream/includes/functions.php on line 16

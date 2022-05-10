@@ -1,0 +1,46 @@
+
+# RewriteEngine On
+# RewriteCond %{HTTPS} off [OR]
+# RewriteCond %{HTTP_HOST} ^www\. [NC]
+# RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+# RewriteRule ^ https://%1%{REQUEST_URI} [L,NE,R=301]
+
+
+
+
+options -Indexes
+
+RewriteEngine on 
+
+RewriteRule ^movie/(.*) /stream.php [QSA]
+RewriteRule ^tv-show/(.*) /tvseries.php [QSA]
+RewriteRule ^series/season(.*) /ajax/season.php [QSA]
+RewriteRule ^movies/getMovieLink(.*) /ajax/get_server.php?type=movie [QSA]
+RewriteRule ^series/getTvLink(.*) /ajax/get_server.php?type=season [QSA]
+RewriteRule ^mv/(.*)/(.*) /auth/req_validator.php?id=$1&type=movie [QSA]
+RewriteRule ^tv/(.*)/(.*) /auth/req_validator.php?id=$1&type=season [QSA]
+
+
+
+RewriteRule ^movies /movie.php [QSA]
+RewriteRule ^tv-shows /tvshows.php [QSA]
+RewriteRule ^new-episodes /new_episodes.php [QSA]
+RewriteRule ^most-watched /trending.php [QSA]
+
+RewriteRule ^ajax/search/auto /ajax/live.php
+RewriteRule ^index/loadmovies /ajax/loadmoviesnew.php
+
+
+# RewriteRule ^contact/ contact.php
+# RewriteRule ^dmca/ dmca.php
+RewriteRule ^sitemap\.xml/?$ sitemap.php
+RewriteRule ^sitemap_2\.xml/?$ sitemap_2.php
+
+
+RewriteEngine on 
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?localhost [NC] 
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?localhost.*$ [NC] 
+RewriteRule \.(mp4)$ - [F]
+
+
+
